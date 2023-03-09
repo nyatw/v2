@@ -12,7 +12,7 @@
                     autodetect
                     code="public $js = [
     [
-        'js/project/app.js',
+        'js/project/main.js',
         'type' => 'module'
     ],
 ];
@@ -32,7 +32,7 @@ public $depends = [
                     code="<div id='app'></div>"/>
 
                 <br>
-                js - app
+                js - main
                 <highlightjs
                     autodetect
                     code="const template = `
@@ -59,7 +59,12 @@ public $depends = [
                 <br>
                 <br>
                 <br>
-            <h3>Инициализация в main.js</h3>
+            <h3>Инициализация wfm</h3>
+                
+                <img style="width: 30%" src="data:image/png;base64,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">
+                <br>
+                <br>
+                <br>
                 js
                 <highlightjs
                     autodetect
